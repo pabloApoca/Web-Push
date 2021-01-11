@@ -1,0 +1,26 @@
+{
+  "name": "Web-Push",
+  "version": "1.0.0",
+  "description": "Esta app sirve para utilizar las notificaciones en una aplicación web que permite que los usuarios puedan volver a visitar el sitio ya sea por nuevo contenido o por cualquier otro tipo de evento.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pabloApoca/Web-Push.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pabloApoca/Web-Push/issues"
+  },
+  "homepage": "https://github.com/pabloApoca/Web-Push#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "web-push": "^3.4.4"
+  }
+}
