@@ -1,12 +1,11 @@
-console.log('Active Service Worker!');
+console.log('Service Worker Works');
 
-self.addEventListener('push', e => { 
-    const data = e.data.json()
+self.addEventListener('push', e => {
+    const data = e.data.json();
     console.log(data)
-    console.log("Notification received")
-    
+    console.log('Notification Received');
     self.registration.showNotification(data.title, {
-        doby: data.message,
+        body: data.message,
         icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Archlinux-icon-crystal-64.svg/1024px-Archlinux-icon-crystal-64.svg.png'
-    })
-})
+    });
+});

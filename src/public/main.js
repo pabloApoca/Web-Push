@@ -1,25 +1,13 @@
-const PUBLIC_VAPID_KEY='BJAV8866qD-bNmqtZzcIPp1yZJCTqfrCTBKE9ODWralDgrUr-HL0cRPxn6AOWn5dSKiECWTHBj5gCeeZD6rnHfE';
-
-function urlBase64ToUint8Array(base64String) {
-    const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
-    const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
-  
-    const rawData = window.atob(base64);
-    const outputArray = new Uint8Array(rawData.length);
-  
-    for (let i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i);
-    }
-    return outputArray;
-  }
+const PUBLIC_VAPID_KEY =
+  "BJAV8866qD-bNmqtZzcIPp1yZJCTqfrCTBKE9ODWralDgrUr-HL0cRPxn6AOWn5dSKiECWTHBj5gCeeZD6rnHfE";
 
 const subscription = async () => {
-
-    // Service Worker
-    const register = await navigator.serviceWorker.register('/serviceworker.js', {
-        scope:'/'
-    });
-    console.log('New Service Worker');
+  // Service Worker
+  console.log("Registering a Service worker");
+  const register = await navigator.serviceWorker.register("/serviceworker.js", {
+    scope: "/"
+  });
+  console.log("New Service Worker");
 
   // Listen Push Notifications
   console.log("Listening Push Notifications");
@@ -39,25 +27,37 @@ const subscription = async () => {
     }
   });
   console.log("Subscribed!");
+};
+
+function urlBase64ToUint8Array(base64String) {
+  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
+
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
 }
 
-const form = document.querySelector('#myForm');
+// UI
+const form = document.querySelector('#myform');
 const message = document.querySelector('#message');
-console.log(message.value);
-
-form.addEventListener('submit', e => {
-
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   fetch('/new-message', {
-    method:'POST',
-    body: JSON.stringify({
-      message: message.value
-    }),
+    method: 'POST',
+    body: JSON.stringify({message: message.value}),
     headers: {
       'Content-Type': 'application/json'
     }
   });
   form.reset();
-})
+});
 
-subscription();
+// Service Worker Support
+if ("serviceWorker" in navigator) {
+  subscription().catch(err => console.log(err));
+}

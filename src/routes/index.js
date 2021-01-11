@@ -1,25 +1,30 @@
-const { Router } = require('express');
+const { Router } = require("express");
 const router = Router();
 
-const webpush = require('../webpush');
-let pushSubcription;
+const webpush = require("../webpush");
+let pushSubscripton;
 
 router.post("/subscription", async (req, res) => {
-    pushSubcription = req.body;
-    res.status(200).json();
-})
+  pushSubscripton = req.body;
+  console.log(pushSubscripton);
 
-router.post('/new-message', async (req, res) => {
+  // Server's Response
+  res.status(201).json();
+});
 
-    const { message } = req.body;
-
-    const payload = JSON.stringify( { 
-        title: 'My Pablo Notification',
-        message: message
-    })
-
-    await webpush.sendNotification(pushSubcription, payload)
-})
-
+router.post("/new-message", async (req, res) => {
+  const { message } = req.body;
+  // Payload Notification
+  const payload = JSON.stringify({
+    title: "My Custom Notification",
+    message 
+  });
+  res.status(200).json();
+  try {
+    await webpush.sendNotification(pushSubscripton, payload);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 module.exports = router;
