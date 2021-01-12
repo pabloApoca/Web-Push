@@ -7,18 +7,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>Web Push</title>
 </head>
-<body>
+<body style="display: grid; justify-content: center;">
    <h1>Welcome to my site</h1> 
 
     <hr>
-    <p> El mensaje que enviara se reflejara en la notificacion push.</p>
 
-    <form id="myform">
-        <input type="text" class="form-control" placeholder="Write your message" id="message" autofocus>
-        <button>
-            Send
-        </button>
-    </form>
+    <div class="input-group mb-3" style="text-align: center;">
+        <form id="myform" >
+            <label class="form-label">El mensaje que enviara se reflejara en la notificacion push.</label>
+
+            <input type="text" class="form-control" placeholder="Write your message" id="message" autofocus>
+            <br>
+            <button class="btn btn-primary mb-3">
+                Send
+            </button>
+        </form>
+    </div>
 
     <script src="/main.js"></script>
 

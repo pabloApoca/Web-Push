@@ -1,5 +1,5 @@
 const PUBLIC_VAPID_KEY =
-  "BJAV8866qD-bNmqtZzcIPp1yZJCTqfrCTBKE9ODWralDgrUr-HL0cRPxn6AOWn5dSKiECWTHBj5gCeeZD6rnHfE";
+  "BPt7lpmxkMVD9unBkIxnbVP0VMrFkNFE87-1dE4zXhCHEhfhlVNGq78Ycn69FSp4S8Gs8Pge9eyldN2u6-9tLhs";
 
 const subscription = async () => {
   // Service Worker
