@@ -1,0 +1,24 @@
+body{
+    display: grid; 
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+div{
+    text-align: center;
+}
+
+input{
+    margin-top: 10px;
+}
+
+button{
+    width: 150px;
+}
+
+#fondo{
+    background-color: rgb(231, 231, 231);
+    padding: 20px;
+    border-radius: 20px;
+}
